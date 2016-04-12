@@ -8,7 +8,15 @@
 </head>
 <body>
 
+<p>
+  <strong>Newest tool:</strong> <%= most_recent_tool.name %>
+</p>
+
 <%= yield %>
+
+<p>
+  <strong>Tools in your box:</strong> <%= users_tool_box_quanity %>
+</p>
 
 </body>
 </html>
