@@ -1,0 +1,7 @@
+<div class="user_info">
+    <h3> <%= "Username: #{@user.username}" %></h3>
+</div>
+<%= flash[:notice] %><br>
+<br>
+
+  <%= link_to "Delete", users_path, method: :delete %>

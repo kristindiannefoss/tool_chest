@@ -1,5 +1,9 @@
 class ToolsController < ApplicationController
 
+  def new
+    @tool = Tool.new
+  end
+  
   def index
     @tools = Tool.all
   end
@@ -8,9 +12,6 @@ class ToolsController < ApplicationController
     @tool = Tool.find(params[:id])
   end
 
-  def new
-    @tool = Tool.new
-  end
 
   def create
     @tool = Tool.create( tool_params )
@@ -26,19 +27,19 @@ class ToolsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @tool = Tool.find(4)
-  # end
-  #
-  # def update
-  #   @tool = Tool.find( params[:id] )
-  #
-  #   if @tool.update( tool_params )
-  #     redirect_to tool_path(@tool.id)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def edit
+    @tool = Tool.find(:id)
+  end
+
+  def update
+    @tool = Tool.find( params[:id] )
+
+    if @tool.update( tool_params )
+      redirect_to tool_path(@tool.id)
+    else
+      render :edit
+    end
+  end
 
   def destroy
     tool = Tool.find( params[:id] )

@@ -8,15 +8,18 @@
 </head>
 <body>
 
-<p>
-  <strong>Newest tool:</strong> <%= most_recent_tool.name %>
-</p>
-
 <%= yield %>
+<br>
+<% if current_user %>
+Welcome, <%= current_user.username %>.
+<br>
+    <%= link_to "Logout", logout_path, method: :destroy %>
+<% else %>
+    <%= link_to "Login", login_path %>
+<% end %>
 
-<p>
-  <strong>Tools in your box:</strong> <%= users_tool_box_quanity %>
-</p>
-
+<% flash.each do |type, message| %>
+<%= content_tag :div, message, class: 'flash_#{type}' %>
+<% end %>
 </body>
 </html>

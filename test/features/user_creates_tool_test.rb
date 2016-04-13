@@ -3,7 +3,7 @@ require 'test_helper'
 class UserCreatesToolTest < ActionDispatch::IntegrationTest
 
 def setup
-  reset_sessions!
+  reset_session!
 end
 
   test "user can create a tool" do
